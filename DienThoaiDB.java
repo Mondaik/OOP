@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import construct.DienThoai;
 public class DienThoaiDB {
-    public static void writeToFile(ArrayList<DienThoai> phoneList, String fileName) {
+    public void writeToFile(ArrayList<DienThoai> phoneList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (DienThoai phone : phoneList) {
                 writer.write(phone.getMaDT() + "," + phone.getTenDT() + "," + phone.getHangDT() + "," + phone.getGiaDT() + "," + phone.getSLTonKho());
@@ -18,7 +18,7 @@ public class DienThoaiDB {
             System.out.println("Không thể nhập vào file: " + e.getMessage());
         }
     }
-    public static ArrayList<DienThoai> readFromFile(String fileName) {
+    public ArrayList<DienThoai> readFromFile(String fileName) {
         ArrayList<DienThoai> phoneList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
