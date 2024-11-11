@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import construct.NhanVien;
 public class NhanVienDB {
-    public static void writeToFile(ArrayList<NhanVien> staffList, String fileName) {
+    public void writeToFile(ArrayList<NhanVien> staffList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (NhanVien staff : staffList) {
                 writer.write(staff.getMaSo() + "," + staff.getHoTen() + "," + staff.getSDT() + staff.getDiaChi() + staff.getChucVu());
@@ -18,7 +18,7 @@ public class NhanVienDB {
             System.out.println("Không thể nhập vào file: " + e.getMessage());
         }
     }
-    public static ArrayList<NhanVien> readFromFile(String fileName) {
+    public ArrayList<NhanVien> readFromFile(String fileName) {
         ArrayList<NhanVien> staffList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
