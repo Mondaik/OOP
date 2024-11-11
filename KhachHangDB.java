@@ -1,9 +1,12 @@
+package database;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import construct.KhachHang;
 public class KhachHangDB {
     public static void writeToFile(ArrayList<KhachHang> customerList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
@@ -21,16 +24,11 @@ public class KhachHangDB {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                String MaSo = data[0];
-                String HoTen = data[1];
-                String SDT = data[2];
-                String DiaChi = data[3];
-                String Email = data[4];
-                KhachHang custom = new KhachHang(MaSo, HoTen, SDT, DiaChi, Email);
+                KhachHang custom = new KhachHang(data[0], data[1], data[2], data[3], data[4]);
                 customerList.add(custom);
             }
         } catch (IOException e) {
-            System.out.println("Error reading from file: " + e.getMessage());
+            System.out.println("Không thể đọc từ file: " + e.getMessage());
         }
         return customerList;
     }
