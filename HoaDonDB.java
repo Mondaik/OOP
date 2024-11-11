@@ -1,9 +1,12 @@
+package database;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import construct.HoaDon;
 public class HoaDonDB {
     public static void writeToFile(ArrayList<HoaDon> billList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
@@ -21,14 +24,11 @@ public class HoaDonDB {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                String MaDT = data[0];
-                String MaKH = data[1];
-                String MaNV = data[2];
-                HoaDon bill = new HoaDon(MaDT, MaKH, MaNV);
+                HoaDon bill = new HoaDon(data[0], data[1], data[2]);
                 billList.add(bill);
             }
         } catch (IOException e) {
-            System.out.println("Error reading from file: " + e.getMessage());
+            System.out.println("Không thể đọc từ file: " + e.getMessage());
         }
         return billList;
     }
