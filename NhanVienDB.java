@@ -1,9 +1,12 @@
+package database;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import construct.NhanVien;
 public class NhanVienDB {
     public static void writeToFile(ArrayList<NhanVien> staffList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
@@ -21,12 +24,7 @@ public class NhanVienDB {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                String MaSo = data[0];
-                String HoTen = data[1];
-                String SDT = data[2];
-                String DiaChi = data[3];
-                String ChucVu = data[4];
-                NhanVien staff = new NhanVien(MaSo, HoTen, SDT, DiaChi, ChucVu);
+                NhanVien staff = new NhanVien(data[0], data[1], data[2], data[3], data[4]);
                 staffList.add(staff);
             }
         } catch (IOException e) {
