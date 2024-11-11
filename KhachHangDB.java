@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import construct.KhachHang;
 public class KhachHangDB {
-    public static void writeToFile(ArrayList<KhachHang> customerList, String fileName) {
+    public void writeToFile(ArrayList<KhachHang> customerList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (KhachHang custom : customerList) {
                 writer.write(custom.getMaSo() + "," + custom.getHoTen() + "," + custom.getSDT() + custom.getDiaChi() + custom.getEmail());
@@ -18,7 +18,7 @@ public class KhachHangDB {
             System.out.println("Không thể nhập vào file: " + e.getMessage());
         }
     }
-    public static ArrayList<KhachHang> readFromFile(String fileName) {
+    public ArrayList<KhachHang> readFromFile(String fileName) {
         ArrayList<KhachHang> customerList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
