@@ -1,9 +1,12 @@
+package database;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import construct.DienThoai;
 public class DienThoaiDB {
     public static void writeToFile(ArrayList<DienThoai> phoneList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
@@ -21,21 +24,15 @@ public class DienThoaiDB {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                String MaDT = data[0];
-                String TenDT = data[1];
-                String HangDT = data[2];
-                Long GiaDT = Long.parseLong(data[3]);
-                int SLTonKho = Integer.parseInt(data[4]);
-                DienThoai phone = new DienThoai(MaDT, TenDT, HangDT, GiaDT,SLTonKho);
+                DienThoai phone = new DienThoai(data[0], data[1], data[2], Long.parseLong(data[3]),Integer.parseInt(data[4]));
                 phoneList.add(phone);
             }
         } catch (IOException e) {
-            System.out.println("Error reading from file: " + e.getMessage());
+            System.out.println("Không thể đọc từ file: " + e.getMessage());
         }
         return phoneList;
     }
-    /*  Test dùng writetofile() và readfromfile()
-    public class Main {
+    /* Test dùng writetofile() và readfromfile()
         public static void main(String[] args) {
             ArrayList<DienThoai> phoneList = new ArrayList<>();
             phoneList.add(new DienThoai("001", "iPhone 13", "Apple", 10000, 10));
@@ -46,9 +43,6 @@ public class DienThoaiDB {
             for (DienThoai phone : loadedPhones) {
                 System.out.println(phone.getMaDT() + " | " + phone.getTenDT() + " | " + phone.getHangDT() + " | " + phone.getGiaDT() + " | " + phone.getSLTonKho());
             }
-        }
-    }
-    */
-    
+        } */
 }
 
