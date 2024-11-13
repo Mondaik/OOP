@@ -1,0 +1,4 @@
+MaSo,Ten,SDT,DiaChi,ChucVu
+E001,Do Thi Thu Huong,099xxxx083,214 Hoan Kiem,Quan Li
+E002,Le My Tam,096xxxx155,378 Hung Vuong,Nhan vien ban hang
+E003,Dao Duy Phuong,035xxxx146,17 Dong Da, Nhan vien ban hang
