@@ -10,6 +10,8 @@ import construct.HoaDon;
 public class HoaDonDB {
     public void writeToFile(ArrayList<HoaDon> billList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write("MaDT,MaKH,MaNV");
+            writer.newLine();
             for (HoaDon bill : billList) {
                 writer.write(bill.getMaDT() + "," + bill.getMaKH() + "," + bill.getMaNV());
                 writer.newLine();
@@ -21,6 +23,7 @@ public class HoaDonDB {
     public ArrayList<HoaDon> readFromFile(String fileName) {
         ArrayList<HoaDon> billList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            reader.readLine();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
