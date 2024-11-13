@@ -1,1 +1,8 @@
-001,iPhone 13,Apple,10000,10
+001,iPhone 13,Apple,12000,10
+002,iPhone 14 Pro Max,Apple,24000,7
+003,iPhone 16,Apple,32000,3
+004,Samsung S24 Ultra,Samsung,29900,5
+005,Samsung Galaxy Z Fold6 5G,Samsung,35000,2
+006,Oppo A3,Oppo,3000,15
+007,Poco X3 NFC,XiaoMi,7200,9
+008,Xiaomi 14T 5G,XiaoMi,12990,13
