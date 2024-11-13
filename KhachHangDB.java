@@ -10,6 +10,8 @@ import construct.KhachHang;
 public class KhachHangDB {
     public void writeToFile(ArrayList<KhachHang> customerList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write("Maso,HoTen,SDT,DiaChi,Email");
+            writer.newLine();
             for (KhachHang custom : customerList) {
                 writer.write(custom.getMaSo() + "," + custom.getHoTen() + "," + custom.getSDT() + custom.getDiaChi() + custom.getEmail());
                 writer.newLine();
@@ -21,6 +23,7 @@ public class KhachHangDB {
     public ArrayList<KhachHang> readFromFile(String fileName) {
         ArrayList<KhachHang> customerList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            reader.readLine();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
