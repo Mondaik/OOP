@@ -10,8 +10,10 @@ import construct.DienThoai;
 public class DienThoaiDB {
     public void writeToFile(ArrayList<DienThoai> phoneList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write("Mã điện thoại,Tên điện thoại,Hãng,Giá,SL Tồn Kho");//Ghi dòng đầu
+            writer.newLine();
             for (DienThoai phone : phoneList) {
-                writer.write(phone.getMaDT() + "," + phone.getTenDT() + "," + phone.getHangDT() + "," + phone.getGiaDT() + "," + phone.getSLTonKho());
+                writer.write(phone.getMaDT() + "," + phone.getTenDT() + "," + phone.getHangDT() + "," + phone.getGiaDT() + "," + phone.getSLTonKho());// Ghi dữ liệu
                 writer.newLine();
             }
         } catch (IOException e) {
@@ -21,6 +23,7 @@ public class DienThoaiDB {
     public ArrayList<DienThoai> readFromFile(String fileName) {
         ArrayList<DienThoai> phoneList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            reader.readLine(); //Skip dòng đầu
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
