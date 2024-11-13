@@ -10,6 +10,8 @@ import construct.NhanVien;
 public class NhanVienDB {
     public void writeToFile(ArrayList<NhanVien> staffList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write("MaSo,Hoten,SDT,Diachi,ChucVu");
+            writer.newLine();
             for (NhanVien staff : staffList) {
                 writer.write(staff.getMaSo() + "," + staff.getHoTen() + "," + staff.getSDT() + staff.getDiaChi() + staff.getChucVu());
                 writer.newLine();
@@ -21,6 +23,7 @@ public class NhanVienDB {
     public ArrayList<NhanVien> readFromFile(String fileName) {
         ArrayList<NhanVien> staffList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            reader.readLine();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
