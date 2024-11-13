@@ -1,3 +1,4 @@
+MaDT,TenDT,HangDT,GiaDT,SLTonKho
 001,iPhone 13,Apple,12000,10
 002,iPhone 14 Pro Max,Apple,24000,7
 003,iPhone 16,Apple,32000,3
