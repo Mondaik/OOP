@@ -1,0 +1,5 @@
+MaSo,HoTen,SDT,DiaChi,Email
+C001,Mai Van Cuong,033xxxx378,123 Pho Hien,cuo*****@gmail.com
+C002,Nguyen An,039xxxx023,456 Quang Trung,ann********@gmail.com
+C003,Luu Bang,096xxxx355,789 Tay Ho,ban************@gmail.com
+C004,Huynh Hoang An,035xxxx183,215 Nguyen Trai,anh*******@gmail.com
